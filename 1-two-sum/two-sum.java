@@ -5,7 +5,7 @@ class Solution {
          int i =0, j = 0;
 
          
-         for( i=0;i<len;i++){
+         while(i<len){
             int sum =0;
             for( j=i+1;j<len;j++){
                 sum = nums[i]+nums[j];
@@ -15,7 +15,8 @@ class Solution {
             }
             if(sum==target){
                     break;
-                }
+            }
+            i++;
          }
 
          int[] result = {i,j};
