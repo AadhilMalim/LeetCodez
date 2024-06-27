@@ -2,7 +2,7 @@ class Solution {
     public int romanToInt(String s) {
         int sum =0;
 		
-		HashMap<Character, Integer> mymap1 = new HashMap<Character, Integer>();
+		Map<Character, Integer> mymap1 = new TreeMap<Character, Integer>();
 		mymap1.put('I', 1);
 		mymap1.put('V', 5);
 		mymap1.put('X', 10);
@@ -14,7 +14,7 @@ class Solution {
 		char[] given = s.toCharArray();
 		int len = given.length;
         
-       for(;len>1;){
+       while(len>1){
             int b1 = mymap1.get(given[len-1]);
             int b2 = mymap1.get(given[len-2]);
             if( b1 > b2){
