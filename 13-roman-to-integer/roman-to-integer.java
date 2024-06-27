@@ -14,14 +14,14 @@ class Solution {
 		char[] given = s.toCharArray();
 		int len = given.length;
         
-        while(len>1){
-            char b1 = given[len-1];
-            char b2 = given[len-2];
-            if(mymap1.get(b1) > mymap1.get(b2)){
-                sum+=mymap1.get(b1)-mymap1.get(b2);
+       for(;len>1;){
+            int b1 = mymap1.get(given[len-1]);
+            int b2 = mymap1.get(given[len-2]);
+            if( b1 > b2){
+                sum+=b1-b2;
                 len-=2;
             }else{
-                sum+=mymap1.get(b1);
+                sum+=b1;
                 len--;
             }
         }
