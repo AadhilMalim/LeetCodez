@@ -13,29 +13,22 @@ class Solution {
 		
 		char[] given = s.toCharArray();
 		int len = given.length;
+        
+        while(len>1){
+            char b1 = given[len-1];
+            char b2 = given[len-2];
+            if(mymap1.get(b1) > mymap1.get(b2)){
+                sum+=mymap1.get(b1)-mymap1.get(b2);
+                len-=2;
+            }else{
+                sum+=mymap1.get(b1);
+                len--;
+            }
+        }
         if(len==1)
 		{
 			sum+=mymap1.get(given[0]);
 		}
-        else{
-            for( int i=len-1; i>0;i--) {
-			
-				char c1 = given[i];
-				char c2 = given[i-1];
-				
-				if(mymap1.get(c1)>mymap1.get(c2)) {
-					sum+= mymap1.get(c1)-mymap1.get(c2);
-					i--;
-				}else {
-					sum+=mymap1.get(c1);
-				}
-            }
-            if(mymap1.get(given[0]) >= mymap1.get(given[1]))
-            {
-                sum+=mymap1.get(given[0]);
-            }
-        }
-		
 		return sum;
     }
 }
