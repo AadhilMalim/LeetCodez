@@ -18,12 +18,12 @@ class Solution {
         return firstNode;
     }
     public int gcd(int a, int b){
-        if(a>b) {int c=b;b=a;a=c;}
-        if(b%(float)a == 0) return a;
-        int divider = a/2;
+        float divider = 1;
+        if(a>b) { if(a%(float)b==0) return b; divider = b/2;}
+        else{if(b%(float)a==0) return a; divider = a/2;}
         while(divider>1){
-            if((float) a%divider == 0 && (float) b%divider == 0 )
-                return divider;
+            if(a%divider == 0 && b%divider == 0 )
+                return (int) divider;
             else divider--;
         }
         return 1;
