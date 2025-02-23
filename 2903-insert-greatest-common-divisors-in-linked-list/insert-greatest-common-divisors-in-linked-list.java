@@ -18,15 +18,8 @@ class Solution {
         return firstNode;
     }
     public int gcd(int a, int b){
-        if(b-a == 1 || a-b ==1) return 1;
-        float divider = 1;
-        if(a>b) { if(a%(float)b==0) return b; divider = b/2;}
-        else{if(b%(float)a==0) return a; divider = a/2;}
-        while(divider>1){
-            if(a%divider == 0 && b%divider == 0 )
-                return (int) divider;
-            else divider--;
-        }
-        return 1;
+       return  b!=0 ?
+                b>a ? gcd(a, b%a) : gcd(b, a%b)
+                : a;
     }
 }
