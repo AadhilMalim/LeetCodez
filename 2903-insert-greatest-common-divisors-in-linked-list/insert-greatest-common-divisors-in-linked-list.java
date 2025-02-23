@@ -14,21 +14,19 @@ class Solution {
         while(head.next != null){
             ListNode nextNode = head.next;
             int v1 =head.val; int v2 = nextNode.val;
-            ListNode newNode = new ListNode();
-            newNode.val = (v1 < v2) ? gcd(v1,v2) : gcd(v2,v1);
-            newNode.next = head.next;
-            head.next = newNode;
+            head.next = new ListNode(((v1 < v2) ? gcd(v1,v2) : gcd(v2,v1)), nextNode);
             head = nextNode; 
         }
         return firstNode;
     }
     public int gcd(int a, int b){
-        int divider = a;
+        if(b%(float)a == 0) return a;
+        int divider = a/2;
         while(divider>1){
             if((float) a%divider == 0 && (float) b%divider == 0 )
                 return divider;
             else divider--;
         }
-        return divider;
+        return 1;
     }
 }
